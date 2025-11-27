@@ -49,3 +49,4 @@ with col2:
     st.write(f"# **${d['fare_amount'].mean() if len(d) > 0 else 99:.2f}**")
 
 st.dataframe(data=data, height=600, use_container_width=True)
+
