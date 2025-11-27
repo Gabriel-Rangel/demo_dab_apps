@@ -23,8 +23,8 @@ targets:
   prod:
     mode: production
     workspace:
-      host: https://adb-1898302093134940.0.azuredatabricks.net
-      root_path: /Workspace/pipelines_etl/${bundle.name}/${bundle.target}
+      host: https://adb-2909807607791205.5.azuredatabricks.net
+      root_path: /Workspace/databricks_apps/${bundle.name}/${bundle.target}
     permissions:
       # - user_name: gabriel.rangel@databricks.com
       - service_principal_name: 6996565f-1303-4497-886d-25325113270c
