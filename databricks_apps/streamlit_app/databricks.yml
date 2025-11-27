@@ -27,7 +27,7 @@ targets:
       root_path: /Workspace/databricks_apps/${bundle.name}/${bundle.target}
     permissions:
       # - user_name: gabriel.rangel@databricks.com
-      - service_principal_name: 6996565f-1303-4497-886d-25325113270c
+      - service_principal_name: 0be436dc-f9f2-45e2-925b-632ef8d5f47f
         level: CAN_MANAGE
     variables:
       sql_warehouse_id:
