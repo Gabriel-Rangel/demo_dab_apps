@@ -107,14 +107,14 @@ jobs:
           databricks api get /api/2.0/preview/scim/v2/Me
 
       # *** ADD Python Package Manager 'uv' to hadle bundle configuration in python ***    
-      - id: install_uv
-        name: Install 'uv' package
-        run: pip install uv
+      # - id: install_uv
+      #   name: Install 'uv' package
+      #   run: pip install uv
       
-      - name: UV - install dependencies
-        working-directory: ${{ env.databricks_pipeline_dir }}/${{ env.dir }}
-        run: |
-          uv sync
+      # - name: UV - install dependencies
+      #   working-directory: ${{ env.databricks_pipeline_dir }}/${{ env.dir }}
+      #   run: |
+      #     uv sync
 
       - name: DAB - validate project
         working-directory: ${{ env.databricks_pipeline_dir }}/${{ env.dir }}
@@ -133,8 +133,7 @@ jobs:
         run: |
           databricks bundle summary --target ${{ env.environment_subfolder}}
 
-      - name: DAB - start workflow
-        if: ${{ (github.event_name != 'workflow_dispatch' && env.databricks_cicd_autostart_job == 'true') || (github.event_name == 'workflow_dispatch' && inputs.job_start) }}
+      - name: DAB - start app
         working-directory: ${{ env.databricks_pipeline_dir }}/${{ env.dir }}
         run: |
-          databricks bundle run ${{ env.dir }}_job --target ${{ env.environment_subfolder }} --restart --no-wait
+          databricks bundle run ${{ env.dir }} --target ${{ env.environment_subfolder }}
